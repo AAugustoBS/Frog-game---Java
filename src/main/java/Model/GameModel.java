@@ -16,4 +16,8 @@ public class GameModel implements Model{
     public boolean getAlive(){
         return this.isAlive;
     }
+
+    public void update(long time){
+        frog.update(time);
+    }
 }

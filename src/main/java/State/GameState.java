@@ -46,7 +46,7 @@ public class GameState extends State{
         time += System.currentTimeMillis() - initialTime;
         initialTime = System.currentTimeMillis();
         while(time >= 20){
-            //see collision
+            gameModel.update(20);
             time -= 20;
         }
 
