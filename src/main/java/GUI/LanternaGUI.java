@@ -1,42 +1,64 @@
-package GUI;
+package gui;
 
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 
 import java.awt.*;
-
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI {
-    Screen screen;
-    protected TextGraphics graphics;
+    private final Screen screen;
 
-    public void createGameScreen(){
-        try{
-            Font font = new Font(Font.MONOSPACED, Font.PLAIN, 30);
-            AWTTerminalFontConfiguration cfg = new SwingTerminalFontConfiguration(true, AWTTerminalFontConfiguration.BoldMode.NOTHING, font);
-            Terminal terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(20,10)).setTerminalEmulatorFontConfiguration(cfg).createTerminal();
-            screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null);   // We don't need a cursor
-            screen.startScreen();             // Screens must be started
-            screen.doResizeIfNecessary();     // Resize screen if necessary
-            screen.clear();
-            graphics=screen.newTextGraphics();
-        } catch (Exception e){
-            System.out.println("Erro: " + e.getMessage());
-        };
+    public LanternaGUI(Screen screen){
+        this.screen = screen;
     }
 
+    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        Terminal terminal = createTerminal(width, height, fontConfig);
+        this.screen = createScreen(terminal);
+    }
 
-    public Screen getScreen(){
+    private Screen createScreen(Terminal terminal) throws IOException {
+        final Screen screen;
+        screen = new TerminalScreen(terminal);
+
+        screen.setCursorPosition(null);
+        screen.startScreen();
+        screen.doResizeIfNecessary();
         return screen;
     }
+
+    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
+        TerminalSize terminalSize = new TerminalSize(width, height + 1);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
+                .setInitialTerminalSize(terminalSize);
+        terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+        Terminal terminal = terminalFactory.createTerminal();
+        return terminal;
+    }
+
+    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        return fontConfig;
+    }
+
+    public
+
 }
