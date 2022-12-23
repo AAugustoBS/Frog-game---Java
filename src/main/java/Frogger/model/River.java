@@ -62,12 +62,12 @@ public class River {
     public boolean isCrocodile(Position position) {
         for (Crocodile crocodile : crocodiles){
             if (crocodile.getPosition().equals(position)){
-                System.out.println("ENTREEEI");
+
                 return true;
             }
 
         }
-        System.out.println(" NAO ENTREEEI");
+
         return false;
     }
 
