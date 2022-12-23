@@ -1,6 +1,7 @@
 package Frogger.gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -98,7 +99,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawFrog(Position position){
-        drawCharacter(position.getX(), position.getY(), 'H', "#FFD700");
+        drawCharacter(position.getX(), position.getY(), 'F', "#FFD700");
     }
 
     @Override
@@ -109,6 +110,14 @@ public class LanternaGUI implements GUI {
     @Override
     public void refresh() throws IOException {
         screen.refresh();
+    }
+
+    @Override
+    public void drawFlow(Position position) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#0000cc"));
+        textGraphics.drawLine(position.getX(), position.getY(), position.getX(), position.getY(),'O');
     }
 
     @Override

@@ -4,6 +4,8 @@ import Frogger.gui.GUI;
 import Frogger.model.Position;
 import Frogger.model.River;
 
+import java.util.List;
+
 public class GameView extends View<River>{
     public GameView(River river){
         super(river);
@@ -11,11 +13,19 @@ public class GameView extends View<River>{
 
     @Override
     public void drawObjects(GUI gui){
-            drawObjects(gui,getModel().getFrog(),new FroggerView());
+            drawObjects(gui,getModel().getFlows(),new FlowView());
+            drawObject(gui,getModel().getFrog(),new FroggerView());
+
 
     }
 
-    private <T extends Object> void drawObjects(GUI gui,T object,ObjectView<T> view){
+    private <T extends Object> void drawObject(GUI gui,T object,ObjectView<T> view){
         view.draw(object,gui);
+    }
+
+    private <T extends Object> void drawObjects(GUI gui, List<T> objects, ObjectView<T> view){
+        for(T object : objects){
+            drawObject(gui,object,view);
+        }
     }
 }
