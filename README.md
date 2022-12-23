@@ -28,7 +28,7 @@ The following screenshots ilustrate the general look of our game, as well as the
 ### Game
 
 <p align="center" justify="center">
-  <img src="docs/img/gamePlay.png"/>
+  <img src="docs/img/gameplay.png"/>
 </p>
 <p align="center">
   <b><i>Fig 1. Gameplay </i></b>
