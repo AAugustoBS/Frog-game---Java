@@ -18,7 +18,7 @@ public class RiverController extends GameController{
 
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getFrog().getLife() == 0)
+        if (action == GUI.ACTION.QUIT || getModel().getFrog().getLife() == 0 || getModel().getFrog().getSaveSon() == true)
             game.setState(new MenuState(new Menu()));
         else {
             frogController.step(game, action, time);

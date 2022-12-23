@@ -71,6 +71,12 @@ public class River {
         return false;
     }
 
+    public boolean isSon(Position position){
+        if(frogSon.getPosition().equals(position))
+            return true;
+        return false;
+    }
+
     public boolean isRiver(Position position){
         for(Flow flow: flows)
             if (flow.getPosition().equals(position))

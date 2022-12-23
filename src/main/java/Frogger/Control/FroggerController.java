@@ -30,8 +30,12 @@ public class FroggerController extends GameController {
     }
 
     private void moveFrog(Position position) {
+        if(getModel().isSon(position)){
+            getModel().getFrog().setSaveSon(true);
+        }
 
          if (!getModel().isWaterFall(position)) {
+
             if(!getModel().isCrocodile(position)){
                 getModel().getFrog().setPosition(position);
             }

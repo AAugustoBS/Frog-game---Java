@@ -12,7 +12,7 @@ public class MenuView extends View<Menu>{
     @Override
     public void drawObjects(GUI gui){
         for(int option = 0; option < getModel().getNumberSelected();option++){
-            gui.drawText(new Position(2,3+option), getModel().getEntry(option),getModel().isSelected(option) ? "#FFD700" : "#FFFFFF" );
+            gui.drawText(new Position(5,7+option), getModel().getEntry(option),getModel().isSelected(option) ? "#FFFF00" : "#FFFFFF" );
         }
     }
 }
