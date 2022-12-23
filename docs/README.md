@@ -27,16 +27,17 @@ This project was developed by *Antonio Augusto Brito de Sousa* (*up202000705*@fe
 - **Touch the little Frog to win** - When the big Frog touch the little one, the game's finish and then the main menu appear.
  
  ### DESIGN
+ 
+ ### General Structure
+ 
+ #### Problem in Context:
+   The main concern of the project was how to automate and synchronize all game elements (frog, water and game commands) without a lot of **While loop** depending of states in very deep classes. Two main patterns were applied to the project, the **Model-View-Control Pattern_**, which is commonly used in a GUI and the **_State Pattern_**
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
+#### Model-View-Control:
+ The ease of using MVC lies in the separation of Model(data), Control(logic) and view(gui side).
 
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
-
-**Example of one of such subsections**:
-
+#### Implementation:
+ For the implementation they were focused on 4 main elements: Game, Menu, River and Frogger. That they are the only ones to have the complete MVC, and the Game inherits the characteristic of the River in the Controller. For the Model, all elements of the game that could store values were used. A Model named Objecto is created, which generates an inheritance for all other models outside the fantastic quartet above. Finally, all models have a View that is responsible for designing the model, in addition to making a direct connection with Lanterna's Package through the package gui.
 ------
 
 #### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
@@ -97,6 +98,6 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 **Example**:
 
 - John Doe: 40%
-- Jane Doe: 60%
+
  
 
