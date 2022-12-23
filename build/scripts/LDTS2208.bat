@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\LDTS2208-1.0-SNAPSHOT.jar;%APP_HOME%\lib\lanterna-3
 
 
 @rem Execute LDTS2208
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %LDT_S2208_OPTS%  -classpath "%CLASSPATH%" Game %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %LDT_S2208_OPTS%  -classpath "%CLASSPATH%" Frogger.Game %*
 
 :end
 @rem End local scope for the variables with windows NT shell

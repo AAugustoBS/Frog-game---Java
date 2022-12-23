@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClass.set("Game")
+    mainClass.set('Frogger.Game')
 }
 
 group 'org.example'
