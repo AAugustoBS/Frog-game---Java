@@ -30,9 +30,17 @@ public class FroggerController extends GameController {
     }
 
     private void moveFrog(Position position) {
-        if (!getModel().isWaterFall(position)) {
-            getModel().getFrog().setPosition(position);
+
+         if (!getModel().isWaterFall(position)) {
+            if(!getModel().isCrocodile(position)){
+                getModel().getFrog().setPosition(position);
+            }
+            else{
+                getModel().getFrog().lossLife();
+                getModel().getFrog().setPosition(new Position(10,19));
+            }
         }
+
         else{
             getModel().getFrog().lossLife();
             getModel().getFrog().setPosition(new Position(10,19));
@@ -46,10 +54,7 @@ public class FroggerController extends GameController {
         if (action == GUI.ACTION.DOWN) moveFrogDown();
         if (action == GUI.ACTION.LEFT) moveFrogLeft();
         if (action == GUI.ACTION.NONE){
-            if(getModel().isRiver(getModel().getFrog().getPosition())){
                 moveFrogLeft();
-
-            }
         }
     }
 

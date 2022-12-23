@@ -13,8 +13,12 @@ public class GameView extends View<River>{
 
     @Override
     public void drawObjects(GUI gui){
+        gui.drawText(new Position(0, 0), "Life: " + getModel().getFrog().getLife(), "#FFD700");
+
             drawObjects(gui,getModel().getFlows(),new FlowView());
+            drawObjects(gui,getModel().getCrocodiles(),new CrocodileView());
             drawObject(gui,getModel().getFrog(),new FroggerView());
+
 
 
     }

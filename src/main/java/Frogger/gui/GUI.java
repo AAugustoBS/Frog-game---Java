@@ -16,5 +16,5 @@ public interface GUI {
     void close() throws IOException;
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
     ACTION getNextAction() throws IOException;
-
+    void drawCrocodile(Position position);
 }

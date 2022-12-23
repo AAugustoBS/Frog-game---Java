@@ -119,7 +119,10 @@ public class LanternaGUI implements GUI {
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#0000cc"));
         textGraphics.drawLine(position.getX(), position.getY(), position.getX(), position.getY(),'O');
     }
-
+    @Override
+    public void drawCrocodile(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'C', "#007500");
+    }
     @Override
     public void close() throws IOException {
         screen.close();
