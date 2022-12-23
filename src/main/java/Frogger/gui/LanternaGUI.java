@@ -113,6 +113,11 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawFrogSon(Position position){
+        drawCharacter(position.getX(), position.getY(), 'f', "#00ff00");
+    }
+
+    @Override
     public void drawFlow(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
 

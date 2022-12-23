@@ -9,6 +9,7 @@ public class River {
     private Frogger frog;
     private List<Flow> flows;
     private List<Crocodile> crocodiles;
+    private FrogSon frogSon;
 
     public River(int width,int height){
         this.width = width;
@@ -25,6 +26,14 @@ public class River {
 
     public Frogger getFrog(){
         return frog;
+    }
+
+    public FrogSon getFrogSon() {
+        return frogSon;
+    }
+
+    public void setFrogSon(FrogSon frogSon){
+        this.frogSon = frogSon;
     }
 
     public void setFlows(List<Flow> flows) {

@@ -13,6 +13,7 @@ public class RiverConstruct {
         river.setFrogger(createFrog());
         river.setCrocodiles(createCrocodiles());
         river.setFlows(createFlow());
+        river.setFrogSon(createFrogSon());
     };
 
     public River getRiver(){
@@ -20,6 +21,9 @@ public class RiverConstruct {
     }
     private Frogger createFrog(){
         return new Frogger(10,18);
+    }
+    private FrogSon createFrogSon(){
+        return new FrogSon(10,0);
     }
     private List<Flow> createFlow(){
         List<Flow> flows = new ArrayList<>();

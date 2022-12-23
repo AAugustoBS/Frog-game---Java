@@ -18,7 +18,7 @@ public class GameView extends View<River>{
             drawObjects(gui,getModel().getFlows(),new FlowView());
             drawObjects(gui,getModel().getCrocodiles(),new CrocodileView());
             drawObject(gui,getModel().getFrog(),new FroggerView());
-
+            drawObject(gui,getModel().getFrogSon(),new FrogSonView());
 
 
     }
