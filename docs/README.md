@@ -61,30 +61,28 @@ The following figure shows how the pattern’s roles were mapped to the applicat
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
 
-**Example of such a subsection**:
+#### DUPLICATE CODE
+-- In this case, we have repetition of else and ifs, a solution would be to create a separate function with the same logic
 
-------
+<img src="img/codeSmell1.png"/>
 
-#### DATA CLASS
 
-The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. This is problematic because […].
+#### LARGE CLASS
+-- In this situation, the River River construct model performs several actions that could be linked to other models, which makes a long class. A solution would be to put in the specific class of each method
+<img src="img/codeSmell2.png"/>
 
-A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
-
+#### Primitive Obsession
+-- In this situation constant values could be passed or via get from another class
+<img src="img/codeSmell3.png"/>
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+There is no acessible tests.
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
+Since it was a job for a group of 1 person, I believe I did my best to take university and work full time simultaneously. However, I confess that there are points that I could have tried a little harder, like the creation of some tests and other states like GameOverState. But in the end, what was worth was the learning.
 
-**Example**:
-
-- John Doe: 40%
 
  
 
