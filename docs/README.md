@@ -39,39 +39,25 @@ This project was developed by *Antonio Augusto Brito de Sousa* (*up202000705*@fe
 #### Implementation:
  For the implementation they were focused on 4 main elements: Game, Menu, River and Frogger. That they are the only ones to have the complete MVC, and the Game inherits the characteristic of the River in the Controller. For the Model, all elements of the game that could store values were used. A Model named Objecto is created, which generates an inheritance for all other models outside the fantastic quartet above. Finally, all models have a View that is responsible for designing the model, in addition to making a direct connection with Lanterna's Package through the package gui.
  
- <img src="img/mainMenu.png"/>
+ <img src="img/MVC.png"/>
 
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+#### The State pattern saved my code for **While loop**
 
 **Problem in Context**
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+The old code had lots and lots of whiles, which depended on model states. The problem was that these layers became deep. For this, the State pattern was used.
 
 **The Pattern**
 
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+The essence of the code has 32 states: Menu and Game. The state is responsible for saving and connecting the mvc model of the different objects, which guarantees interconnection and execution through the Step method. Furthermore, the SetState method ensures the ease of moving from one state to another in the parent class "Game"
 
 **Implementation**
 
 The following figure shows how the pattern’s roles were mapped to the application classes.
 
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
+<img src="img/state.png"/>
 
-These classes can be found in the following files:
 
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
-
-**Consequences**
-
-The use of the State Pattern in the current design allows the following benefits:
-
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
