@@ -40,7 +40,7 @@ public class RiverConstruct {
         SplittableRandom random = new SplittableRandom();
         for(int y = 2;y< 17;y++){
            for(int x = 0;x<20;x++){
-               boolean probablyFalse = random.nextInt(10) == 0;
+               boolean probablyFalse = random.nextInt(15) == 0;
                if(probablyFalse){
                    crocodiles.add(new Crocodile(x,y));
                }
