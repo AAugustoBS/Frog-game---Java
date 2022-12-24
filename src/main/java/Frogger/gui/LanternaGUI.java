@@ -99,7 +99,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawFrog(Position position){
-        drawCharacter(position.getX(), position.getY(), 'F', "#FFD700");
+        drawCharacter(position.getX(), position.getY(), 'A', "#FFD700");
     }
 
     @Override
@@ -114,7 +114,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawFrogSon(Position position){
-        drawCharacter(position.getX(), position.getY(), 'f', "#00ff00");
+        drawCharacter(position.getX(), position.getY(), '#', "#00ff00");
     }
 
     @Override
@@ -122,7 +122,7 @@ public class LanternaGUI implements GUI {
         TextGraphics textGraphics = screen.newTextGraphics();
 
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#0000cc"));
-        textGraphics.drawLine(position.getX(), position.getY(), position.getX(), position.getY(),'O');
+        textGraphics.drawLine(position.getX(), position.getY(), position.getX(), position.getY(),'7');
     }
     @Override
     public void drawCrocodile(Position position) {
